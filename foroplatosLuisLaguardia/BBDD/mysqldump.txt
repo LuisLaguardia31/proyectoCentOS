@@ -1,0 +1,63 @@
+create database if not exists foroplatosLuisLaguardia;
+use foroplatosLuisLaguardia;
+
+create table if not exists usuarios(
+id int PRIMARY KEY not null AUTO_INCREMENT,
+rol ENUM("Usuario","Administrador") not null,
+username varchar(20) not null UNIQUE,
+pwd varchar(20) not null,
+foto varchar(200),
+name varchar(20) not null,
+surname varchar(50) not null,
+experience enum("Junior","Asociado","Nivel Medio","Senior") not null,
+email varchar(60) not null
+);
+
+
+create table if not exists recetas(
+id int AUTO_INCREMENT PRIMARY KEY, 
+id_usuario int,
+titulo varchar(50) NOT NULL, 
+ingredientes varchar(500), 
+elaboracion varchar(500), 
+foto varchar(200),
+tipo enum('Recetas Tradicionales','Recetas de Slow Food','Recetas de Freidoras Sin Aceite')not null,
+dificultad enum("facil", "medio", "dificlil", "muy dificil"),
+tiempoElaboracion varchar(20),
+valoracion enum("1", "2", "3", "4", "5"),
+FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE);
+
+create table if not exists ingredientes(
+id int AUTO_INCREMENT PRIMARY KEY,
+nombre varchar(150)
+);
+
+CREATE TABLE if not exists recetas_ingredientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    receta_id INT NOT NULL,
+    ingrediente_id INT NOT NULL,
+    UNIQUE (receta_id, ingrediente_id),
+    FOREIGN KEY (receta_id) REFERENCES recetas(id),
+    FOREIGN KEY (ingrediente_id) REFERENCES ingredientes(id)
+);
+
+CREATE TABLE if not exists seguidores (
+    id_seguidor INT NOT NULL,
+    id_seguido INT NOT NULL, 
+    PRIMARY KEY (id_seguidor, id_seguido), 
+    FOREIGN KEY (id_seguidor) REFERENCES usuarios(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_seguido) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+CREATE TABLE If not exists comentarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    contenido VARCHAR(500) NOT NULL,
+    id_receta INT NOT NULL,
+    id_usuario INT,
+    id_comentario_padre INT NULL,
+    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_receta) REFERENCES recetas(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_comentario_padre) REFERENCES comentarios(id) ON DELETE SET NULL
+);
+
