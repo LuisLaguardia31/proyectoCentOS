@@ -1,0 +1,134 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fdfdc8;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(to top, #feb47b, #ff7e5f);
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav.menu {
+    background: linear-gradient(to top, #fae7a5, #feb47b);    
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+  
+nav.menu ul {
+    list-style: none;
+    padding: 0; 
+    margin: 0; 
+    display: flex; 
+}
+  
+nav.menu ul li {
+    margin-right: 20px; 
+}
+
+nav.menu ul li a {
+    color: black;
+    text-decoration: none; 
+    padding: 10px 15px; 
+    display: block; 
+    border-radius: 5px; 
+    transform: scale(1);
+    transition: all 0.3s ease; 
+}
+
+nav.menu ul li a:hover {
+    background-color: #ffe7b8; 
+    transform: scale(1.02);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+main {
+    padding: 20px;
+    margin: auto;
+}
+
+.formulario {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px; 
+    margin-top: 10px;
+}
+
+.mensajeError{
+    background: #ed4321;
+    border-radius: 10px;
+    width: 80%;
+    color: black;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.campo {
+    border-radius: 10px;
+    width: 80%;
+    transform: scale(1);
+    transition: transform 0.5s ease; 
+}
+
+.campo:hover {
+    transform: scale(1.02);
+}
+
+.campo h2 {
+    background-color: #feb47b;
+    margin: 0;
+    padding: 15px 0;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.campo p {
+    flex-grow: 1;
+}
+
+.datos {
+    background: #fdf2c8;
+    padding: 20px;
+    text-align: center;
+}
+
+input[type="submit"] {
+    display: block;
+    margin: 0 auto;
+    background-color: #e3bd77;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover{
+    background-color: #ffe7b8; 
+    transform: scale(1.02);
+}
+
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background: linear-gradient(to top, #ff7e5f, #feb47b);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
