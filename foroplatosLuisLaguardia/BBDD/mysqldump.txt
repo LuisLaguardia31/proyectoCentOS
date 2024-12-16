@@ -22,7 +22,7 @@ ingredientes varchar(500),
 elaboracion varchar(500), 
 foto varchar(200),
 tipo enum('Recetas Tradicionales','Recetas de Slow Food','Recetas de Freidoras Sin Aceite')not null,
-dificultad enum("facil", "medio", "dificlil", "muy dificil"),
+dificultad enum("facil", "medio", "dificil", "muy dificil"),
 tiempoElaboracion varchar(20),
 valoracion enum("1", "2", "3", "4", "5"),
 FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE);
